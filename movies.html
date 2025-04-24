@@ -1,16 +1,28 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+
     <meta name="keywords" content="video, streaming, cine arena, cine-arena, sports">
+
     <meta name="description" content="Cine Arena live streaming - Watch Sports for free.">
+
     <title>Cine Arena</title>
+
     <link rel="icon" href="favicon.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
+
+      /* Menu Styling */
         .menu {
             display: flex;
             justify-content: center;
@@ -32,6 +44,7 @@
             transition: color 0.3s ease;
         }
 
+        /* Neon Glow Effect */
         .menu a::before {
             content: '';
             position: absolute;
@@ -49,19 +62,23 @@
         @keyframes neon-border {
             0% {
                 box-shadow: 0 0 10px rgba(0, 255, 255, 1), 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.6);
+                background-color: rgba(0, 255, 255, 0.7);
             }
 
             50% {
                 box-shadow: 0 0 10px rgba(255, 0, 255, 1), 0 0 20px rgba(255, 0, 255, 0.8), 0 0 30px rgba(255, 0, 255, 0.6);
+                background-color: rgba(255, 0, 255, 0.7);
             }
 
             100% {
                 box-shadow: 0 0 10px rgba(255, 255, 0, 1), 0 0 20px rgba(255, 255, 0, 0.8), 0 0 30px rgba(255, 255, 0, 0.6);
+                background-color: rgba(255, 255, 0, 0.7);
             }
         }
 
-        .movie-grid {
-            margin-top: 5px;
+
+      .movie-grid {
+            margin-top:5px;
             display: grid;
             gap: 20px;
             padding: 20px;
@@ -82,169 +99,278 @@
         .movie-card img {
             width: 100%;
             height: auto;
-            transition: transform 0.3s ease;
         }
-
         .movie-card:hover img {
-            transform: scale(1.1);
+            transform: scale(1.1); /* Zoom effect on image when the card is hovered */
         }
 
-        @media (max-width: 767px) {
+
+
+
+        /* Mobile View (2 posts per row) */
+       @media (max-width: 767px) {
             .movie-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+        
 
+        /* Tablet View (3 posts per row) */
         @media (min-width: 768px) {
             .movie-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
 
+        /* Laptop View (5 posts per row) */
         @media (min-width: 1024px) {
-            body {
-                margin-left: 10%;
-                margin-right: 10%;
+            body{
+                margin-left:10%;
+                margin-right:10%;
             }
-
             .movie-grid {
                 grid-template-columns: repeat(5, 1fr);
             }
         }
+      
 
-        .sticky-footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background: #fff;
-            text-align: center;
-            padding: 0px;
-        }
+
+
+ .sticky-footer {
+
+           position: fixed;
+
+           bottom: 0;
+
+           width: 100%;
+
+           background: #fff;
+
+           color: white;
+
+           text-align: center;
+
+           padding: 0px;
+
+ }
+
     </style>
-</head>
 
+</head>
+	
 <body class="bg-gray-100 text-gray-900 transition-all">
 
+
+
+    <!-- Header -->
+
     <header class="p-4 bg-blue-900 text-white text-center text-2xl font-bold">
-        <a href="cinearena.live"><img src="cineheader.png" class="h-10 mx-auto"></a>
+
+       <a href="cinearena.live"> <img src="cineheader.png" class="h-10 md:h-10 lg:h-10 mx-auto"></a>
+
     </header>
 
-	<div class="menu">
-        <a href="https://cinearena.live/">Sports</a>
-        <a href="https://cinearena.live/music">Music</a>
-        <a href="https://cinearena.live/movies">Movies</a>
-	</div>
+
+	<!-- Menu Section -->
+    <div class="menu">
+        <a href="https://cinearena.live/">Bollywood</a>
+        <a href="https://cinearena.live/music">South-Hindi</a>
+        <a href="https://cinearena.live/movies">Hollywood</a>
+    </div>
+
+
+
+    <!-- Search & Dark Mode Toggle -->
 
     <div class="flex justify-center items-center p-4 gap-4">
-        <input type="search" id="search" placeholder="Search Movies..."
-            class="px-4 py-2 rounded border border-gray-400 text-black focus:outline-none focus:ring-2 focus:ring-blue-400">
+
+        <input type="search" id="search" placeholder="Search Movies..." 
+
+               class="px-4 py-2 rounded border border-gray-400 text-black focus:outline-none focus:ring-2 focus:ring-blue-400">
+
         <button id="theme-toggle" class="px-4 py-2 bg-gray-100 text-black rounded border border-gray-400">🌙</button>
+
     </div>
 
 
-    <div class="movie-grid" id="movieGrid">
-        <!-- Place movie-card divs here (already added in your original code) -->
-        <!-- Keep your movie-card divs unchanged -->
-        <!-- All cards will be managed by JS -->
-        <!-- Sample card shown below -->
-        <div class="movie-card" data-title="Kaafir (2025) Full Movie in Hindi">
-            <a href="https://cinearena.github.io/Kaafir-2025/">
-                <img src="https://image.tmdb.org/t/p/w400/j804CKMJGCFLxAJsKaCR9cFh0Ey.jpg" alt="Movie">
+    
+  
+    <!-- Channel Grid -->
+
+  <div class="movie-grid" id="movieGrid">
+
+
+
+ <div class="movie-card" data-title="Kaafir (2025) Full Movie in Hindi">
+              <a href="https://cinearena.github.io/Kaafir-2025/">
+                <img src="https://image.tmdb.org/t/p/w400/j804CKMJGCFLxAJsKaCR9cFh0Ey.jpg" alt="Movie 2">
                 <h4>Kaafir (2025) Full Movie in Hindi</h4>
-            </a>
-        </div>
-        <!-- Add the rest of your cards here -->
-    </div>
+              </a>
+              
+ </div>
 
-    <div class="flex justify-center mt-4 mb-10">
-        <button id="loadMore" class="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Load More</button>
-    </div>
+     <div class="movie-card" data-title="TEST (2025) Full Movie Hindi Dubbed">
+              <a href="https://cinearena.github.io/TEST-2025-FULL-MOVIE/">
+                <img src="https://image.tmdb.org/t/p/w400/8jZaBr3dTIW8N4D6F4Cprssfm7V.jpg" alt="Movie 2">
+                <h4>TEST (2025) Full Movie Hindi Dubbed</h4>
+              </a>
+              
+     </div>
+  
+            <div class="movie-card" data-title="The Deplomat (2025) Full Movie 1080p">
+              <a href="https://cinearena.github.io/The-Diplomat-Full-Movie/">
+                <img src="https://image.tmdb.org/t/p/w500/uwl9Y4px8TTIQK4N19k6gnW1RnX.jpg" alt="Movie 2">
+                <h4>The Deplomat (2025) Full Movie 1080p</h4>
+              </a>
+              
+            </div>
+          
+            <div class="movie-card" data-title="Sikandar (2025) Full Movie 1080p">
+              <a href="https://cinearena.github.io/Sikandar-DVD-HQ/">
+                <img src="https://image.tmdb.org/t/p/w342/41s42CRXafa3OuRGvCtfYPEBmse.jpg" alt="Movie 1">
+                <h4>Sikandar (2025) Full Movie 1080p</h4>
+              </a>
+              
+            </div>
 
-    <div class="sticky-footer">
-        <center>
-            <script type="text/javascript">
-                atOptions = {
-                    'key': 'd57705b1f5d0f7abbb19cdb5dfe61249',
-                    'format': 'iframe',
-                    'height': 90,
-                    'width': 728,
-                    'params': {}
-                };
-            </script>
-            <script type="text/javascript" src="//carryglanced.com/d57705b1f5d0f7abbb19cdb5dfe61249/invoke.js"></script>
-        </center>
-    </div>
+            
+
+            <div class="movie-card" data-title="Pushpa 2: The Rise (2021) Full Movie 1080p">
+              <a href="https://cinearena.github.io/pushpa2-the-rise/">
+                <img src="https://catimages.org/images/2025/01/30/Pushpa-2-The-Rule-RELOADED-2024-HDHub4u.Tv.jpg" alt="Movie 4">
+              
+                <h4>Pushpa 2: The Rise (2021) Full Movie 1080p</h4>
+              </a>
+              
+            </div>
+
+            <div class="movie-card" data-title="Pushpa: The Rise (2021) Full Movie 1080p">
+              <a href="https://cinearena.github.io/pushpa-the-rise-2021/">
+                <img src="https://image.tmdb.org/t/p/w500/sLxYuCCnWW845rXni9he26gUZM9.jpg" alt="Movie 3">
+                <h4>Pushpa: The Rise (2021) Full Movie 1080p</h4>
+              </a>
+              
+            </div>
+	  
+
+	  <div class="flex justify-center mt-4">
+    <button id="loadMore" class="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Load More</button>
+	  </div>
+	  
+            
+  </div>
+        
+
+      
+
 
     <script>
-        const toggleButton = document.getElementById('theme-toggle');
-        const body = document.body;
-        const cards = document.querySelectorAll('.movie-card');
+    // Dark Mode Toggle
+    const toggleButton = document.getElementById('theme-toggle');
+    const body = document.body;
+    const cards = document.querySelectorAll('.movie-card');
 
-        function applyDarkMode(enable) {
-            if (enable) {
-                body.classList.add('dark');
-                body.classList.replace('bg-gray-100', 'bg-gray-900');
-                body.classList.replace('text-gray-900', 'text-gray-200');
-                toggleButton.textContent = "☀️";
-                localStorage.setItem('dark-mode', 'enabled');
+    function applyDarkMode(enable) {
+        if (enable) {
+            body.classList.add('dark');
+            body.classList.replace('bg-gray-100', 'bg-gray-900');
+            body.classList.replace('text-gray-900', 'text-gray-200');
+            toggleButton.textContent = "☀️";
+            localStorage.setItem('dark-mode', 'enabled');
+        } else {
+            body.classList.remove('dark');
+            body.classList.replace('bg-gray-900', 'bg-gray-100');
+            body.classList.replace('text-gray-200', 'text-gray-900');
+            toggleButton.textContent = "🌙";
+            localStorage.setItem('dark-mode', 'disabled');
+        }
+    }
+
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+        applyDarkMode(true);
+    }
+
+    toggleButton.addEventListener('click', () => {
+        applyDarkMode(!body.classList.contains('dark'));
+    });
+
+    // Real-Time Search
+    document.getElementById('search').addEventListener('input', function () {
+        let searchValue = this.value.toLowerCase();
+        let movies = document.querySelectorAll('.movie-card');
+        let visibleCount = 0;
+
+        movies.forEach((movie) => {
+            let title = movie.getAttribute('data-title').toLowerCase();
+            if (title.includes(searchValue)) {
+                movie.style.display = "flex";
+                visibleCount++;
             } else {
-                body.classList.remove('dark');
-                body.classList.replace('bg-gray-900', 'bg-gray-100');
-                body.classList.replace('text-gray-200', 'text-gray-900');
-                toggleButton.textContent = "🌙";
-                localStorage.setItem('dark-mode', 'disabled');
+                movie.style.display = "none";
             }
-        }
-
-        if (localStorage.getItem('dark-mode') === 'enabled') {
-            applyDarkMode(true);
-        }
-
-        toggleButton.addEventListener('click', () => {
-            applyDarkMode(!body.classList.contains('dark'));
         });
 
-        // Show first 10 posts initially
-        let currentIndex = 20;
-        const loadMoreBtn = document.getElementById('loadMore');
+        document.getElementById('loadMore').style.display = (visibleCount > 10) ? 'block' : 'none';
+    });
 
-        function showInitialPosts() {
-            cards.forEach((card, index) => {
-                card.style.display = (index < 20) ? 'flex' : 'none';
-            });
-        }
+    // Load More Functionality
+    const loadMoreBtn = document.getElementById('loadMore');
+    let currentIndex = 10;
 
-        loadMoreBtn.addEventListener('click', () => {
-            const total = cards.length;
-            const nextIndex = currentIndex + 10;
-
-            for (let i = currentIndex; i < nextIndex && i < total; i++) {
-                cards[i].style.display = 'flex';
+    function showInitialPosts() {
+        cards.forEach((card, index) => {
+            if (index < 10) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
             }
-
-            currentIndex = nextIndex;
-            if (currentIndex >= total) loadMoreBtn.style.display = 'none';
         });
+    }
 
-        showInitialPosts();
+    loadMoreBtn.addEventListener('click', () => {
+        let total = cards.length;
+        let nextIndex = currentIndex + 10;
 
-        document.getElementById('search').addEventListener('input', function () {
-            const value = this.value.toLowerCase();
-            let visibleCount = 0;
+        for (let i = currentIndex; i < nextIndex && i < total; i++) {
+            cards[i].style.display = 'flex';
+        }
 
-            cards.forEach(card => {
-                const title = card.getAttribute('data-title').toLowerCase();
-                if (title.includes(value)) {
-                    card.style.display = 'flex';
-                    visibleCount++;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+        currentIndex = nextIndex;
 
-            loadMoreBtn.style.display = (visibleCount > 10) ? 'block' : 'none';
-        });
-    </script>
+        if (currentIndex >= total) {
+            loadMoreBtn.style.display = 'none';
+        }
+    });
+
+    // Init display on page load
+    showInitialPosts();
+</script>
+
+
+<!-- Footer -->
+
+ <br><br><br><br><br><br>
+
+
+ <div class="sticky-footer">
+  <center>
+
+  <script type="text/javascript">
+ atOptions = {
+  'key' : 'd57705b1f5d0f7abbb19cdb5dfe61249',
+  'format' : 'iframe',
+  'height' : 90,
+  'width' : 728,
+  'params' : {}
+ };
+</script>
+   
+<script type="text/javascript" src="//carryglanced.com/d57705b1f5d0f7abbb19cdb5dfe61249/invoke.js"></script>
+
+  </center>
+ </div>
+
 
 </body>
+
 </html>
