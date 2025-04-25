@@ -354,8 +354,30 @@
             });
         });
 
-		       
-    
+	
+     // Show only first 10 movie cards initially
+      const cards = document.querySelectorAll('.movie-card');
+      const loadMoreButton = document.getElementById('loadMore');
+      let visibleCount = 10;
+
+      function updateVisibleCards() {
+         cards.forEach((card, i) => {
+         card.style.display = i < visibleCount ? 'flex' : 'none';
+      });
+
+      if (visibleCount >= cards.length) {
+          loadMoreButton.style.display = 'none';
+          }
+      }
+
+      updateVisibleCards();
+ 
+      loadMoreButton.addEventListener('click', () => {
+           visibleCount += 10;
+           updateVisibleCards();
+      
+      });
+				       
 
     </script>
 
