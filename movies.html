@@ -526,7 +526,7 @@
     });
 
     // Load More Logic
-    let currentVisible = 10;
+    let currentVisible = 20;
 
     function updateVisiblePosts() {
       cards.forEach((card, index) => {
@@ -540,7 +540,7 @@
     updateVisiblePosts();
 
     loadMoreBtn.addEventListener("click", () => {
-      currentVisible += 5;
+      currentVisible += 10;
       updateVisiblePosts();
     });
   </script>
