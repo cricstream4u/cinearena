@@ -251,10 +251,7 @@
             
   </div>
 	
-	<!-- Load More Button -->
-<div class="text-center my-4">
-    <button id="loadMore" class="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Load More</button>
-</div>
+	
         
 
       
@@ -353,31 +350,7 @@
                 }
             });
         });
-
-	
-     // Show only first 10 movie cards initially
-      const cards = document.querySelectorAll('.movie-card');
-      const loadMoreButton = document.getElementById('loadMore');
-      let visibleCount = 10;
-
-      function updateVisibleCards() {
-         cards.forEach((card, i) => {
-         card.style.display = i < visibleCount ? 'flex' : 'none';
-      });
-
-      if (visibleCount >= cards.length) {
-          loadMoreButton.style.display = 'none';
-          }
-      }
-
-      updateVisibleCards();
- 
-      loadMoreButton.addEventListener('click', () => {
-           visibleCount += 10;
-           updateVisibleCards();
-      
-      });
-				       
+       
 
     </script>
 
